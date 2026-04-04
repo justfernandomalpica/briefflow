@@ -1,0 +1,336 @@
+{
+  "sections": [
+    {
+      "id": "identificacion",
+      "title": "Identificación",
+      "fields": [
+        {
+          "id": "nombre",
+          "label": "Nombre",
+          "type": "text",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 60,
+          "placeholder": "Ej: Juan Pérez"
+        },
+        {
+          "id": "email",
+          "label": "Correo electrónico",
+          "type": "email",
+          "required": true,
+          "maxLength": 100,
+          "placeholder": "Ej: contacto@marca.com"
+        }
+      ]
+    },
+    {
+      "id": "info_marca",
+      "title": "Información general de la marca",
+      "fields": [
+        {
+          "id": "marca_nombre",
+          "label": "¿Cuál es el nombre de la marca?",
+          "type": "text",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 80,
+          "placeholder": "Ej: Studio Nova"
+        },
+        {
+          "id": "marca_origen_nombre",
+          "label": "¿Por qué se eligió ese nombre?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 10,
+          "maxLength": 300,
+          "placeholder": "Ej: Elegimos este nombre porque..."
+        },
+        {
+          "id": "marca_definicion",
+          "label": "Define en una frase tu marca",
+          "type": "text",
+          "required": true,
+          "minLength": 5,
+          "maxLength": 120,
+          "placeholder": "Ej: Marca de ropa sostenible para jóvenes"
+        },
+        {
+          "id": "marca_ubicacion",
+          "label": "¿En qué ciudad / estado / país está tu marca?",
+          "type": "text",
+          "required": true,
+          "maxLength": 120,
+          "placeholder": "Ej: Monterrey, Nuevo León, México"
+        },
+        {
+          "id": "marca_giro",
+          "label": "¿Cuál es el giro de la marca y qué productos o servicios ofrece?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 10,
+          "maxLength": 400,
+          "placeholder": "Ej: Nos dedicamos a..."
+        }
+      ]
+    },
+    {
+      "id": "identidad",
+      "title": "Identidad de marca",
+      "description": "Escribe palabras clave separadas por comas",
+      "fields": [
+        {
+          "id": "mision_vision",
+          "label": "¿Cuál es la misión y visión de tu marca?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 20,
+          "maxLength": 500,
+          "placeholder": "Ej: Nuestra misión es..."
+        },
+        {
+          "id": "valores",
+          "label": "Valores de la marca",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 10,
+          "placeholder": "Ej: responsabilidad, honestidad, innovación"
+        },
+        {
+          "id": "percepcion",
+          "label": "¿Cómo deseas que tus clientes perciban tu marca?",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 8,
+          "placeholder": "Ej: moderna, confiable, premium"
+        },
+        {
+          "id": "propuesta_valor",
+          "label": "¿Cuál es la propuesta de valor de tu marca?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 15,
+          "maxLength": 400,
+          "placeholder": "Ej: Ofrecemos productos únicos que..."
+        }
+      ]
+    },
+    {
+      "id": "analisis",
+      "title": "Análisis interno",
+      "description": "Escribe palabras clave separadas por comas",
+      "fields": [
+        {
+          "id": "fortalezas",
+          "label": "Fortalezas de la marca",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 8,
+          "placeholder": "Ej: calidad, atención personalizada, innovación"
+        },
+        {
+          "id": "debilidades",
+          "label": "Debilidades de la marca",
+          "type": "pills",
+          "required": true,
+          "minItems": 1,
+          "maxItems": 8,
+          "placeholder": "Ej: poca visibilidad, presupuesto limitado"
+        },
+        {
+          "id": "objetivos",
+          "label": "Objetivos a corto y largo plazo",
+          "type": "textarea",
+          "required": true,
+          "minLength": 15,
+          "maxLength": 400,
+          "placeholder": "Ej: A corto plazo buscamos..."
+        }
+      ]
+    },
+    {
+      "id": "cliente",
+      "title": "Cliente ideal",
+      "description": "Escribe palabras clave separadas por comas donde aplique",
+      "fields": [
+        {
+          "id": "sexo",
+          "label": "Sexo del cliente",
+          "type": "select",
+          "required": true,
+          "options": ["Masculino", "Femenino", "Mixto", "Otro"]
+        },
+        {
+          "id": "edad",
+          "label": "Edad del cliente",
+          "type": "select",
+          "required": true,
+          "options": ["15–20", "21–25", "26–35", "36–45", "46+"]
+        },
+        {
+          "id": "hobbies",
+          "label": "Gustos y hobbies",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 10,
+          "placeholder": "Ej: viajar, tecnología, fitness"
+        },
+        {
+          "id": "necesidades",
+          "label": "Necesidades y problemas del cliente",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 10,
+          "placeholder": "Ej: ahorrar tiempo, mejorar imagen, optimizar procesos"
+        },
+        {
+          "id": "resuelve",
+          "label": "¿Tu marca resuelve alguna de estas necesidades?",
+          "type": "radio",
+          "required": true,
+          "options": ["Sí", "No"]
+        },
+        {
+          "id": "resuelve_cuales",
+          "label": "¿Cuáles necesidades resuelve?",
+          "type": "dynamicChecklist",
+          "required": true,
+          "dependsOn": {
+            "field": "resuelve",
+            "value": "Sí"
+          },
+          "source": "necesidades",
+          "allowCustom": true
+        },
+        {
+          "id": "nivel_socioeconomico",
+          "label": "Nivel socioeconómico",
+          "type": "select",
+          "required": true,
+          "options": ["Bajo", "Medio bajo", "Medio", "Medio alto", "Alto"]
+        },
+        {
+          "id": "nivel_estudios",
+          "label": "Nivel de estudios",
+          "type": "select",
+          "required": true,
+          "options": ["Primaria", "Secundaria", "Preparatoria", "Universidad", "Posgrado"]
+        }
+      ]
+    },
+    {
+      "id": "competencia",
+      "title": "Competencia",
+      "fields": [
+        {
+          "id": "competencia_quienes",
+          "label": "¿Quién es la competencia directa e indirecta?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 10,
+          "maxLength": 300,
+          "placeholder": "Ej: Nuestra competencia directa es..."
+        },
+        {
+          "id": "competencia_redes",
+          "label": "Redes sociales de la competencia",
+          "type": "pills",
+          "required": true,
+          "minItems": 1,
+          "maxItems": 10,
+          "placeholder": "Ej: instagram.com/marca"
+        },
+        {
+          "id": "diferenciacion",
+          "label": "¿Por qué tu marca es diferente?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 10,
+          "maxLength": 300,
+          "placeholder": "Ej: Nos diferenciamos porque..."
+        },
+        {
+          "id": "admira_competencia",
+          "label": "¿Qué admiras de tu competencia?",
+          "type": "textarea",
+          "required": true,
+          "minLength": 5,
+          "maxLength": 200,
+          "placeholder": "Ej: Su consistencia visual..."
+        }
+      ]
+    },
+    {
+      "id": "branding",
+      "title": "Dirección creativa / Branding",
+      "description": "Escribe palabras clave separadas por comas donde aplique",
+      "fields": [
+        {
+          "id": "restriccion",
+          "label": "¿Existe alguna restricción gráfica?",
+          "type": "radio",
+          "required": true,
+          "options": ["Sí", "No"]
+        },
+        {
+          "id": "restriccion_detalle",
+          "label": "¿Cuál restricción?",
+          "type": "textarea",
+          "required": true,
+          "dependsOn": {
+            "field": "restriccion",
+            "value": "Sí"
+          },
+          "maxLength": 200,
+          "placeholder": "Ej: No usar color rojo..."
+        },
+        {
+          "id": "medios",
+          "label": "Medios de comunicación de la marca",
+          "type": "pills",
+          "required": true,
+          "minItems": 1,
+          "maxItems": 10,
+          "placeholder": "Ej: Instagram, sitio web, email marketing"
+        },
+        {
+          "id": "estilo",
+          "label": "¿Cómo deseas que sea el branding/logo?",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 10,
+          "placeholder": "Ej: minimalista, moderno, elegante"
+        },
+        {
+          "id": "transmite",
+          "label": "¿Qué deseas que transmita el branding?",
+          "type": "pills",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 10,
+          "placeholder": "Ej: confianza, innovación, profesionalismo"
+        }
+      ]
+    },
+    {
+      "id": "notas",
+      "title": "Notas finales",
+      "fields": [
+        {
+          "id": "notas_adicionales",
+          "label": "Notas adicionales / referencias",
+          "type": "textarea",
+          "required": true,
+          "minLength": 10,
+          "maxLength": 600,
+          "placeholder": "Puedes agregar ideas, referencias o links que ayuden al proyecto..."
+        }
+      ]
+    }
+  ]
+}
