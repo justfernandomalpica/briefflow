@@ -25,6 +25,11 @@ class View {
         return $this->path;
     }
     public function getData() : array {
+        // $data = $this->data;
+        // $this->data = [];
+        // foreach($data as $key => $val) {
+        //     $this->data["view_".$key] = $val;
+        // }
         return $this->data; 
     }
 
