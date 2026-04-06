@@ -5,6 +5,7 @@ define("PROJECT_ROOT", $project_root);
 require PROJECT_ROOT . "/vendor/autoload.php";
 require "functions.php";
 
+use Api\SchemaApiController;
 use App\Controllers\FormController;
 use Core\Rendering\RenderEngine;
 use Core\Routing\Router;
@@ -16,5 +17,7 @@ $dotenv->safeLoad();
 $router = new Router();
 
 $rEngine = new RenderEngine("app/views/layouts","app/views");
+
+SchemaApiController::setSchema("/config/");
 
 $formController = new FormController($rEngine);
