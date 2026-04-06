@@ -17,7 +17,6 @@ class FormController {
         
         $view = new View("public/greeting");
         $view->data(["fields"=>$fields]);
-        debug($view->getData()["fields"],false);
         $this->rEngine->render("master",$view);
     }
 
