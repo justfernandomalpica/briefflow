@@ -1,0 +1,1 @@
+<h1>Desde la vista de agradecimiento</h1>
