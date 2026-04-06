@@ -15,7 +15,7 @@
                     min="<?= $field["minLength"] ?>"
                 <?php endif; ?>
                 <?php if(isset($field["maxLength"])) : ?>
-                    min="<?= $field["maxLength"] ?>"
+                    max="<?= $field["maxLength"] ?>"
                 <?php endif; ?>
                 >
         </div>
