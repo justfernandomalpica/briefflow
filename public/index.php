@@ -19,7 +19,8 @@ $router->get("/api/fields/{id}",[ApiController::class,"getFieldsById"])->name("g
 // Guest user flow
 $router->get("/", [$formController, "index"])->name("index.greeting");
 $router->get("/form",[$formController, "form"])->name("index.form"); //Aqui se necesita middleware de usuario identificado
-$router->post("/identify",[$formController,"identify"])->name("index.form.post"); 
+$router->post("/validate",[$formController,"validate"])->name("index.form.post");
+$router->post("/identify",[$formController,"identify"])->name("index.identify"); 
 $router->get("/thankyou",[$formController, "farewell"])->name("index.farewell");
 
 $router->dispatch();

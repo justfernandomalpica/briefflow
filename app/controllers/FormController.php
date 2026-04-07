@@ -24,6 +24,9 @@ class FormController {
         $view = new View("public/form");
         $this->rEngine->render("master",$view);
     }
+    public function validate() {
+        debug($_POST); //Prueba de ruta desplayando los datos del formulario.
+    }
 
     public function identify(){
         debug($_POST); //Prueba de ruta desplayando los datos del formulario.

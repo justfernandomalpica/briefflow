@@ -1,6 +1,8 @@
-<h1>Breif</h1>
-<h2>Le damos la bienvenida</h2>
-<p>Por favor indiquenos su nombre y un correo</p>
+<header class="text-center">
+    <h1>Breif</h1>
+    <h2>Le damos la bienvenida</h2>
+    <p>Por favor indiquenos su nombre y un correo</p>
+</header>
 
 <form action="/identify" method="post">
     <?php foreach($view_fields as $id => $field) : ?>
