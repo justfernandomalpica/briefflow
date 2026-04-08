@@ -1,7 +1,7 @@
 import * as fetch from "./api.js";
 import * as render from "./renderForm.js";
 
-export default formInit = async () => {
+export default async function formInit() {
   const sections = await fetch.schema();
 
   Object.entries(sections).forEach(async (section) => {
@@ -14,4 +14,4 @@ export default formInit = async () => {
   });
 
   render.submit();
-};
+}
