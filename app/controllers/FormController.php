@@ -13,7 +13,7 @@ class FormController {
     }
 
     public function index() {
-        $fields = SchemaApiController::getFieldsById("identificacion");
+        $fields = SchemaApiController::getFieldsBySectionId("identificacion");
         
         $view = new View("public/greeting");
         $view->data(["fields"=>$fields]);

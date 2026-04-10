@@ -1,11 +1,13 @@
 import * as make from "./../html/maker.js";
+import * as handle from "./../logic/stateHandling.js";
+import pillsLogic from "../logic/pillsLogic.js";
 
 const formContainer = document.querySelector("[data-form-root]");
 
 function renderInput(field) {
   switch (field.type) {
     case "textarea":
-      return make.textarea(field);
+      return make.textarea(field, handle.change);
 
     case "select":
       return make.select(field);
@@ -14,33 +16,20 @@ function renderInput(field) {
       return make.radios(field);
 
     case "pills":
-      return make.pills(field);
+      return make.pills(field, pillsLogic);
 
     case "dynamicChecklist":
       return make.dynCL(field);
 
     default:
-      return make.text(field);
+      return make.text(field, handle.change);
   }
-}
-
-function labelHasInput(type) {
-  return type === "radio" || type === "dynamicChecklist";
 }
 
 function renderField(field, fieldCounter) {
   const div = document.createElement("div");
-  const label = document.createElement("label");
-
-  label.textContent = `${fieldCounter}.- ${field.label}`;
-  if (field.required === true) label.textContent += " *";
-  if (!labelHasInput(field.type)) label.htmlFor = field.id;
-  div.appendChild(label);
 
   const input = renderInput(field);
-  if (field.required === true) input.required = true;
-  if ("minLength" in field) input.setAttribute("min", field.minLength);
-  if ("maxLength" in field) input.setAttribute("max", field.maxLength);
   div.appendChild(input);
 
   fieldCounter++;

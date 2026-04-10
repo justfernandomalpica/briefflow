@@ -14,7 +14,8 @@ $router->get("/health", function() {
 $router->get("/api/schema",[ApiController::class,"getSchema"])->name("get.schema");
 $router->get("/api/sections",[ApiController::class,"getAllSections"])->name("get.sections");
 $router->get("/api/section/{id}",[ApiController::class,"getSectionById"])->name("get.section.id");
-$router->get("/api/fields/{id}",[ApiController::class,"getFieldsById"])->name("get.fields.id");
+$router->get("/api/fields",[ApiController::class,"getAllFields"])->name("get.fields");
+$router->get("/api/fields/{id}",[ApiController::class,"getFieldsBySectionId"])->name("get.field.id");
 
 // Guest user flow
 $router->get("/", [$formController, "index"])->name("index.greeting");

@@ -27,9 +27,14 @@ class ApiController {
         self::renderJson($section);
     }
 
-    public static function getFieldsById(array $params) {
+    public static function getAllFields() {
+        $fields = SchemaApiController::getAllFields('json');
+        self::renderJson($fields);
+    }
+
+    public static function getFieldsBySectionId(array $params) {
         $id = $params['id'] ?? '';
-        $fields = SchemaApiController::getFieldsById($id,'json');
+        $fields = SchemaApiController::getFieldsBySectionId($id,'json');
         if($fields==='') {
             http_response_code(404);
             exit;

@@ -47,7 +47,7 @@ class SchemaApiController {
         return self::returnOnFormat($section,$format);
     }
     
-    public static function getFieldsById(string $id, string $format = self::ARRAY) : array | string {
+    public static function getFieldsBySectionId(string $id, string $format = self::ARRAY) : array | string {
         $fields = self::getSectionById($id)["fields"];
         $assocFields = [];
         foreach($fields as $field) {
@@ -56,6 +56,17 @@ class SchemaApiController {
             $assocFields[$fId] = $field;
         }
         return self::returnOnFormat($assocFields,$format);
+    }
+
+    public static function getAllFields(string $format = self::ARRAY) : array | string {
+        $sections = self::getAllSections();
+        $fields = [];
+        foreach($sections as $section) {
+            foreach($section["fields"] as $field) {
+                $fields[] = $field;
+            }
+        }
+        return self::returnOnFormat($fields,$format);
     }
 
     private static function returnOnFormat(array $value, string $format = self::ARRAY) : array | string {

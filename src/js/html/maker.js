@@ -1,17 +1,27 @@
-function textarea(field) {
+function textarea(field, handler) {
+  const fragment = document.createDocumentFragment();
+  const label = addLabel(field);
   const textarea = document.createElement("textarea");
 
   textarea.id = field.id;
   textarea.name = field.id;
   textarea.placeholder = field.placeholder;
+  textarea.addEventListener("input", handler);
+  setAttrs(field, textarea);
 
-  return textarea;
+  fragment.appendChild(label);
+  fragment.appendChild(textarea);
+  return fragment;
 }
 
 function select(field) {
+  const fragment = document.createDocumentFragment();
+  const label = addLabel(field);
+
   const select = document.createElement("select");
   select.id = field.id;
   select.name = field.id;
+  setAttrs(field, select);
 
   const defOp = document.createElement("option");
   defOp.value = "";
@@ -29,16 +39,26 @@ function select(field) {
     select.appendChild(option);
   });
 
-  return select;
+  fragment.appendChild(label);
+  fragment.appendChild(select);
+  return fragment;
 }
 
-function text(field) {
+function text(field, handler) {
+  const fragment = document.createDocumentFragment();
   const text = document.createElement("input");
+  const label = addLabel(field);
+
   text.type = "text";
   if (field.placeholder) text.placeholder = field.placeholder;
   text.name = field.id;
   text.id = field.id;
-  return text;
+  text.addEventListener("input", handler);
+  setAttrs(field, text);
+
+  fragment.appendChild(label);
+  fragment.appendChild(text);
+  return fragment;
 }
 
 function radios(field) {
@@ -54,6 +74,7 @@ function radios(field) {
     input.id = optionId;
     input.name = field.id;
     input.value = op;
+    setAttrs(field, input);
     div.appendChild(input);
 
     label.setAttribute("for", optionId);
@@ -67,8 +88,9 @@ function radios(field) {
   return contanier;
 }
 
-function pills(field) {
+function pills(field, handler) {
   const fragment = document.createDocumentFragment();
+  const label = addLabel(field);
   const pillsDiv = document.createElement("div");
   const input = document.createElement("input");
   const note = document.createElement("p");
@@ -82,11 +104,21 @@ function pills(field) {
   input.id = field.id;
   input.name = field.id;
   input.placeholder = field.placeholder;
+  input.setAttribute("pills-input", "");
+  input.addEventListener("input", handler);
+  setAttrs(field, input);
 
+  fragment.appendChild(label);
   fragment.appendChild(note);
   fragment.appendChild(pillsDiv);
   fragment.appendChild(input);
   return fragment;
+}
+
+function pill(value) {
+  const pill = document.createElement("span");
+  pill.textContent = value;
+  return pill;
 }
 
 function dynCL(field) {
@@ -100,4 +132,24 @@ function dynCL(field) {
   return fragment;
 }
 
-export { textarea, select, text, radios, pills, dynCL };
+function addLabel(field) {
+  const label = document.createElement("label");
+  label.textContent = field.label;
+
+  if (field.required === true) {
+    const star = document.createElement("span");
+    star.textContent = "*";
+    label.appendChild(star);
+  }
+
+  label.htmlFor = field.id;
+  return label;
+}
+
+function setAttrs(field, input) {
+  if (field.required === true) input.required = true;
+  if ("minLength" in field) input.setAttribute("minLength", field.minLength);
+  if ("maxLength" in field) input.setAttribute("maxLength", field.maxLength);
+}
+
+export { textarea, select, text, radios, pills, pill, dynCL };
